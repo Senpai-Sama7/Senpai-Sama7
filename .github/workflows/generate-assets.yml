@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -52,7 +52,10 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.email \
+            "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add assets/*.svg
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update generated assets [skip ci]" && git push)
+          git diff --quiet && git diff --staged --quiet || \
+            (git commit -m "Update generated assets [skip ci]" && \
+             git push)
