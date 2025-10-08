@@ -22,6 +22,8 @@ Passionate developer crafting elegant solutions to complex problems. I believe i
 
 ![Metrics](https://github.com/senpai-sama7/senpai-sama7/blob/main/github-metrics.svg)
 
+*Metrics will be generated automatically by GitHub Actions*
+
 </div>
 
 ![Soft Divider](./assets/divider-soft.svg)
@@ -54,13 +56,17 @@ Passionate developer crafting elegant solutions to complex problems. I believe i
 <td width="50%">
 
 ### 📊 Weekly Activity
-![Sparkline](./assets/sparkline.svg)
+![Sparkline](https://github.com/senpai-sama7/senpai-sama7/blob/main/assets/sparkline.svg)
+
+*Generated automatically by GitHub Actions*
 
 </td>
 <td width="50%">
 
 ### 🎯 Skill Radar
-![Radar Chart](./assets/radar.svg)
+![Radar Chart](https://github.com/senpai-sama7/senpai-sama7/blob/main/assets/radar.svg)
+
+*Generated automatically by GitHub Actions*
 
 </td>
 </tr>
@@ -73,6 +79,8 @@ Passionate developer crafting elegant solutions to complex problems. I believe i
 <div align="center">
 
 ![Snake Animation](https://github.com/senpai-sama7/senpai-sama7/raw/output/snake.svg)
+
+*Generated automatically by GitHub Actions*
 
 </div>
 
