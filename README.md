@@ -6,7 +6,7 @@
 
 <div align="center">
 
-![Typing Animation](https://github.com/senpai-sama7/senpai-sama7/raw/main/assets/typing-clay.svg)
+![Modern Animation](https://github.com/senpai-sama7/senpai-sama7/raw/main/assets/modern-animation.svg)
 
 </div>
 

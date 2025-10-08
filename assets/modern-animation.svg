@@ -1,0 +1,130 @@
+<svg width="800" height="150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 150">
+  <defs>
+    <linearGradient id="neonGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="50%" style="stop-color:#764ba2"/>
+      <stop offset="100%" style="stop-color:#f093fb"/>
+    </linearGradient>
+    <linearGradient id="neonGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4facfe"/>
+      <stop offset="50%" style="stop-color:#00f2fe"/>
+      <stop offset="100%" style="stop-color:#43e97b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="12" result="bigBlur"/>
+      <feMerge> 
+        <feMergeNode in="bigBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Animated background particles -->
+  <g id="particles">
+    <circle cx="100" cy="40" r="2" fill="#667eea" opacity="0.6">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0;600,0;0,0" dur="20s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="80" r="1.5" fill="#f093fb" opacity="0.7">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0;-150,30;400,0" dur="25s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="120" r="2.5" fill="#4facfe" opacity="0.5">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0;200,-50;-100,0" dur="18s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Holographic text display -->
+  <g id="holoText">
+    <!-- Text 1 -->
+    <text x="400" y="50" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" 
+          font-size="24" font-weight="800" fill="url(#neonGrad1)" filter="url(#neonGlow)">
+      <animate attributeName="opacity" values="0;1;1;1;0;0;0;0;0;0" dur="20s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" 
+                        values="0.8;1;1;1;0.8;0.8;0.8;0.8;0.8;0.8" dur="20s" repeatCount="indefinite"/>
+      ENTERPRISE ARCHITECT
+    </text>
+    
+    <!-- Text 2 -->
+    <text x="400" y="50" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" 
+          font-size="24" font-weight="800" fill="url(#neonGrad2)" filter="url(#neonGlow)">
+      <animate attributeName="opacity" values="0;0;1;1;1;0;0;0;0;0" dur="20s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" 
+                        values="0.8;0.8;1;1;1;0.8;0.8;0.8;0.8;0.8" dur="20s" repeatCount="indefinite"/>
+      AI ENGINEER
+    </text>
+    
+    <!-- Text 3 -->
+    <text x="400" y="50" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" 
+          font-size="24" font-weight="800" fill="url(#neonGrad1)" filter="url(#neonGlow)">
+      <animate attributeName="opacity" values="0;0;0;1;1;1;0;0;0;0" dur="20s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" 
+                        values="0.8;0.8;0.8;1;1;1;0.8;0.8;0.8;0.8" dur="20s" repeatCount="indefinite"/>
+      CLOUD SPECIALIST
+    </text>
+    
+    <!-- Text 4 -->
+    <text x="400" y="50" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" 
+          font-size="24" font-weight="800" fill="url(#neonGrad2)" filter="url(#neonGlow)">
+      <animate attributeName="opacity" values="0;0;0;0;1;1;1;0;0;0" dur="20s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" 
+                        values="0.8;0.8;0.8;0.8;1;1;1;0.8;0.8;0.8" dur="20s" repeatCount="indefinite"/>
+      INNOVATION CATALYST
+    </text>
+  </g>
+  
+  <!-- Scanning line effect -->
+  <line x1="0" y1="75" x2="800" y2="75" stroke="url(#neonGrad1)" stroke-width="2" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="scaleX" 
+                      values="0;1;0" dur="6s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Floating geometric shapes -->
+  <polygon points="50,100 70,90 70,110" fill="#667eea" opacity="0.4" filter="url(#glow)">
+    <animateTransform attributeName="transform" type="rotate" 
+                      values="0 60 100;360 60 100" dur="15s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
+  </polygon>
+  
+  <rect x="720" y="95" width="15" height="15" fill="#f093fb" opacity="0.5" filter="url(#glow)" rx="2">
+    <animateTransform attributeName="transform" type="rotate" 
+                      values="0 727.5 102.5;-360 727.5 102.5" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Data stream effect -->
+  <g id="dataStream">
+    <rect x="0" y="130" width="20" height="3" fill="#4facfe" opacity="0.6">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0;800,0;0,0" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="0" y="135" width="15" height="2" fill="#00f2fe" opacity="0.7">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0;800,0;0,0" dur="10s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="0" y="138" width="25" height="2" fill="#43e97b" opacity="0.5">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0;800,0;0,0" dur="12s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Subtitle -->
+  <text x="400" y="90" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" 
+        font-size="14" font-weight="500" fill="#666" opacity="0.8">
+    Building the future of technology
+  </text>
+</svg>
