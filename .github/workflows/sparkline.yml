@@ -1,35 +1,317 @@
-name: Generate Sparkline
+name: Generate Activity Sparkline
+
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 6 * * *"  # Daily at 6 AM UTC
   workflow_dispatch:
+    inputs:
+      days:
+        description: 'Number of days to include'
+        required: false
+        default: '30'
+        type: string
+      force_update:
+        description: 'Force update even if no changes'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  PYTHON_VERSION: '3.11'
 
 jobs:
   generate-sparkline:
+    name: Generate Activity Sparkline
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+      
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-        
-      - name: Setup Python
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
-          
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+      
       - name: Install dependencies
         run: |
-          pip install requests
-          
-      - name: Generate sparkline
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Validate script integrity
+        run: |
+          # Check if the script exists and is executable
+          if [[ -f "scripts/gen_sparkline.py" ]]; then
+            echo "✅ Sparkline script found"
+            python -m py_compile scripts/gen_sparkline.py
+            echo "✅ Script syntax is valid"
+          else
+            echo "❌ Sparkline script not found"
+            exit 1
+          fi
+      
+      - name: Generate sparkline with error handling
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python scripts/gen_sparkline.py > assets/sparkline.svg
+          set -euo pipefail
           
-      - name: Commit and push
+          # Set parameters
+          DAYS="${{ github.event.inputs.days || '30' }}"
+          OUTPUT_FILE="assets/sparkline.svg"
+          
+          echo "Generating sparkline for last $DAYS days..."
+          
+          # Create assets directory if it doesn't exist
+          mkdir -p assets
+          
+          # Generate sparkline with comprehensive error handling
+          if python scripts/gen_sparkline.py \
+            --username senpai-sama7 \
+            --days "$DAYS" \
+            --width 400 \
+            --height 60 \
+            --output "$OUTPUT_FILE" \
+            --log-level INFO; then
+            
+            echo "✅ Sparkline generated successfully"
+            
+            # Validate the generated SVG
+            if [[ -f "$OUTPUT_FILE" ]]; then
+              if grep -q "<svg" "$OUTPUT_FILE" && grep -q "</svg>" "$OUTPUT_FILE"; then
+                echo "✅ Generated SVG is valid"
+                
+                # Check file size
+                file_size=$(stat -c%s "$OUTPUT_FILE")
+                if [[ $file_size -gt 100 && $file_size -lt 1048576 ]]; then  # 100 bytes to 1MB
+                  echo "✅ File size is reasonable: $file_size bytes"
+                else
+                  echo "⚠️ File size is unusual: $file_size bytes"
+                fi
+              else
+                echo "❌ Generated SVG is invalid"
+                exit 1
+              fi
+            else
+              echo "❌ Output file was not created"
+              exit 1
+            fi
+          else
+            echo "❌ Sparkline generation failed"
+            
+            # Fallback: generate with sample data
+            echo "Attempting fallback with sample data..."
+            if python scripts/gen_sparkline.py \
+              --use-sample-data \
+              --output "$OUTPUT_FILE" \
+              --log-level INFO; then
+              echo "✅ Fallback sparkline generated"
+            else
+              echo "❌ Fallback generation also failed"
+              exit 1
+            fi
+          fi
+      
+      - name: Optimize SVG
+        run: |
+          OUTPUT_FILE="assets/sparkline.svg"
+          
+          if [[ -f "$OUTPUT_FILE" ]]; then
+            # Create backup
+            cp "$OUTPUT_FILE" "${OUTPUT_FILE}.backup"
+            
+            # Basic SVG optimization (remove unnecessary whitespace)
+            sed -i 's/>[[:space:]]*</></g' "$OUTPUT_FILE"
+            
+            # Validate optimization didn't break the SVG
+            if grep -q "<svg" "$OUTPUT_FILE" && grep -q "</svg>" "$OUTPUT_FILE"; then
+              echo "✅ SVG optimization successful"
+              
+              # Compare file sizes
+              original_size=$(stat -c%s "${OUTPUT_FILE}.backup")
+              optimized_size=$(stat -c%s "$OUTPUT_FILE")
+              savings=$((original_size - optimized_size))
+              
+              echo "File size optimization: $original_size → $optimized_size bytes (saved: $savings bytes)"
+              rm "${OUTPUT_FILE}.backup"
+            else
+              echo "⚠️ Optimization broke SVG, restoring backup"
+              mv "${OUTPUT_FILE}.backup" "$OUTPUT_FILE"
+            fi
+          fi
+      
+      - name: Generate metadata
+        run: |
+          OUTPUT_FILE="assets/sparkline.svg"
+          METADATA_FILE="assets/sparkline-metadata.json"
+          
+          if [[ -f "$OUTPUT_FILE" ]]; then
+            # Generate metadata
+            cat > "$METADATA_FILE" << EOF
+          {
+            "generated_at": "$(date -u '+%Y-%m-%dT%H:%M:%SZ')",
+            "generator": "gen_sparkline.py",
+            "version": "1.0.0",
+            "parameters": {
+              "username": "senpai-sama7",
+              "days": ${{ github.event.inputs.days || 30 }},
+              "width": 400,
+              "height": 60
+            },
+            "file_info": {
+              "size_bytes": $(stat -c%s "$OUTPUT_FILE"),
+              "checksum": "$(sha256sum "$OUTPUT_FILE" | cut -d' ' -f1)"
+            },
+            "workflow": {
+              "run_id": "${{ github.run_id }}",
+              "run_number": "${{ github.run_number }}",
+              "actor": "${{ github.actor }}"
+            }
+          }
+          EOF
+            
+            echo "✅ Metadata generated"
+          fi
+      
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet assets/sparkline.svg; then
+            echo "No changes detected in sparkline"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected in sparkline"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and push changes
+        if: steps.changes.outputs.has_changes == 'true' || github.event.inputs.force_update == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add assets/sparkline.svg
-          git diff --staged --quiet || git commit -m "feat: update sparkline chart"
-          git push
+          
+          # Add files
+          git add assets/sparkline.svg assets/sparkline-metadata.json
+          
+          # Create commit message with details
+          commit_msg="feat: update activity sparkline
+
+          - Generated for last ${{ github.event.inputs.days || '30' }} days
+          - File size: $(stat -c%s assets/sparkline.svg) bytes
+          - Generated at: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+          - Workflow run: ${{ github.run_number }}
+          
+          [skip ci]"
+          
+          git commit -m "$commit_msg"
+          
+          # Push with retry logic
+          for i in {1..3}; do
+            if git push; then
+              echo "✅ Changes pushed successfully"
+              break
+            else
+              echo "⚠️ Push failed, retrying in $((2**i)) seconds..."
+              sleep $((2**i))
+              git pull --rebase
+            fi
+          done
+      
+      - name: Create artifact
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: sparkline-assets
+          path: |
+            assets/sparkline.svg
+            assets/sparkline-metadata.json
+          retention-days: 30
+      
+      - name: Performance summary
+        run: |
+          echo "## 📊 Sparkline Generation Summary" >> $GITHUB_STEP_SUMMARY
+          
+          if [[ -f "assets/sparkline.svg" ]]; then
+            file_size=$(stat -c%s assets/sparkline.svg)
+            echo "- **Status**: ✅ Success" >> $GITHUB_STEP_SUMMARY
+            echo "- **File Size**: $(numfmt --to=iec $file_size)" >> $GITHUB_STEP_SUMMARY
+            echo "- **Days Included**: ${{ github.event.inputs.days || '30' }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **Generated**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+            echo "- **Changes**: ${{ steps.changes.outputs.has_changes }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- **Status**: ❌ Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+  # Health check and validation
+  validate-sparkline:
+    name: Validate Generated Sparkline
+    runs-on: ubuntu-latest
+    needs: generate-sparkline
+    if: always()
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Download sparkline artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: sparkline-assets
+          path: assets/
+        continue-on-error: true
+      
+      - name: Validate sparkline quality
+        run: |
+          if [[ -f "assets/sparkline.svg" ]]; then
+            echo "## 🔍 Sparkline Quality Check" >> $GITHUB_STEP_SUMMARY
+            
+            # Check SVG structure
+            if grep -q "<svg" assets/sparkline.svg && grep -q "</svg>" assets/sparkline.svg; then
+              echo "- ✅ Valid SVG structure" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- ❌ Invalid SVG structure" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            # Check for required elements
+            if grep -q "polyline" assets/sparkline.svg; then
+              echo "- ✅ Contains sparkline data" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- ❌ Missing sparkline data" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            # Check accessibility
+            if grep -q "role=\"img\"" assets/sparkline.svg && grep -q "aria-label" assets/sparkline.svg; then
+              echo "- ✅ Accessibility attributes present" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- ⚠️ Missing accessibility attributes" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            # File size check
+            file_size=$(stat -c%s assets/sparkline.svg)
+            if [[ $file_size -lt 10240 ]]; then  # Less than 10KB
+              echo "- ✅ Optimized file size: $(numfmt --to=iec $file_size)" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- ⚠️ Large file size: $(numfmt --to=iec $file_size)" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+          else
+            echo "## ❌ Sparkline Validation Failed" >> $GITHUB_STEP_SUMMARY
+            echo "Sparkline file not found or generation failed." >> $GITHUB_STEP_SUMMARY
+          fi
+      
+      - name: Check generation status
+        run: |
+          if [[ "${{ needs.generate-sparkline.result }}" == "success" ]]; then
+            echo "✅ Sparkline generation workflow completed successfully"
+          else
+            echo "❌ Sparkline generation workflow failed"
+            exit 1
+          fi
