@@ -1,12 +1,28 @@
-<svg width="800" height="60" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="80" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.8"/>
-      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:0.6"/>
-      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0.8"/>
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.9">
+        <animate attributeName="stop-color" values="#667eea;#4facfe;#00f2fe;#43e97b;#667eea" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:0.7">
+        <animate attributeName="stop-color" values="#764ba2;#f093fb;#f5576c;#4facfe;#764ba2" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0.9">
+        <animate attributeName="stop-color" values="#f093fb;#f5576c;#4facfe;#00f2fe;#f093fb" dur="8s" repeatCount="indefinite"/>
+      </stop>
     </linearGradient>
+    <filter id="waveGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <path d="M0,30 Q200,10 400,30 T800,30 L800,60 L0,60 Z" fill="url(#waveGradient)">
-    <animateTransform attributeName="transform" type="translate" values="0,0;-400,0;0,0" dur="6s" repeatCount="indefinite"/>
+  <path d="M0,40 Q100,15 200,40 T400,40 Q500,15 600,40 T800,40 L800,80 L0,80 Z" fill="url(#waveGradient)" filter="url(#waveGlow)">
+    <animateTransform attributeName="transform" type="translate" values="0,0;-200,0;0,0" dur="10s" repeatCount="indefinite"/>
+  </path>
+  <path d="M0,50 Q150,25 300,50 T600,50 Q700,25 800,50 L800,80 L0,80 Z" fill="url(#waveGradient)" opacity="0.6">
+    <animateTransform attributeName="transform" type="translate" values="0,0;200,0;0,0" dur="12s" repeatCount="indefinite"/>
   </path>
 </svg>
