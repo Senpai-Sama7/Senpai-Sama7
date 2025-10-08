@@ -1,12 +1,12 @@
 <div align="center">
 
-![Hero](./assets/hero-clay.svg)
+![Hero](https://github.com/senpai-sama7/senpai-sama7/raw/main/assets/hero-clay.svg)
 
 </div>
 
 <div align="center">
 
-![Typing Animation](./assets/typing-clay.svg)
+![Typing Animation](https://github.com/senpai-sama7/senpai-sama7/raw/main/assets/typing-clay.svg)
 
 </div>
 
