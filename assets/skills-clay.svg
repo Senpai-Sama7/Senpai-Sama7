@@ -1,0 +1,80 @@
+<svg width="350" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="clayCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f0f3"/>
+      <stop offset="100%" style="stop-color:#e6e6ea"/>
+    </linearGradient>
+    <linearGradient id="skillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0.6"/>
+    </linearGradient>
+    <filter id="clayDepth">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="5" dy="5" result="offset1"/>
+      <feFlood flood-color="#d1d1d6"/>
+      <feComposite in2="offset1" operator="in"/>
+      <feOffset dx="-3" dy="-3" result="offset2"/>
+      <feFlood flood-color="#ffffff"/>
+      <feComposite in2="offset2" operator="in"/>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Card background -->
+  <rect x="20" y="20" width="310" height="160" fill="url(#clayCard)" rx="20" filter="url(#clayDepth)"/>
+  
+  <!-- Title -->
+  <text x="175" y="50" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+        font-size="18" font-weight="700" fill="#333">
+    Skills Radar
+  </text>
+  
+  <!-- Radar chart -->
+  <g id="radarChart" transform="translate(175, 120)">
+    <!-- Grid circles -->
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#ddd" stroke-width="1" opacity="0.5"/>
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#ddd" stroke-width="1" opacity="0.5"/>
+    <circle cx="0" cy="0" r="60" fill="none" stroke="#ddd" stroke-width="1" opacity="0.5"/>
+    
+    <!-- Grid lines -->
+    <line x1="0" y1="0" x2="0" y2="-60" stroke="#ddd" stroke-width="1" opacity="0.5"/>
+    <line x1="0" y1="0" x2="52" y2="-30" stroke="#ddd" stroke-width="1" opacity="0.5"/>
+    <line x1="0" y1="0" x2="52" y2="30" stroke="#ddd" stroke-width="1" opacity="0.5"/>
+    <line x1="0" y1="0" x2="0" y2="60" stroke="#ddd" stroke-width="1" opacity="0.5"/>
+    <line x1="0" y1="0" x2="-52" y2="30" stroke="#ddd" stroke-width="1" opacity="0.5"/>
+    <line x1="0" y1="0" x2="-52" y2="-30" stroke="#ddd" stroke-width="1" opacity="0.5"/>
+    
+    <!-- Skill polygon -->
+    <polygon points="0,-54 46,-26 46,26 0,54 -46,26 -46,-26" 
+             fill="url(#skillGrad)" stroke="#667eea" stroke-width="2">
+      <animateTransform attributeName="transform" type="rotate" 
+                        values="0;5;-5;0" dur="8s" repeatCount="indefinite"/>
+    </polygon>
+    
+    <!-- Skill labels -->
+    <text x="0" y="-75" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="10" font-weight="600" fill="#666">Architecture</text>
+    <text x="60" y="-20" text-anchor="start" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="10" font-weight="600" fill="#666">AI/ML</text>
+    <text x="60" y="35" text-anchor="start" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="10" font-weight="600" fill="#666">Cloud</text>
+    <text x="0" y="85" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="10" font-weight="600" fill="#666">DevOps</text>
+    <text x="-60" y="35" text-anchor="end" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="10" font-weight="600" fill="#666">Frontend</text>
+    <text x="-60" y="-20" text-anchor="end" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="10" font-weight="600" fill="#666">Backend</text>
+  </g>
+  
+  <!-- Floating particles -->
+  <circle cx="300" cy="60" r="3" fill="#667eea" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="50" cy="160" r="2" fill="#f093fb" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4s" repeatCount="indefinite"/>
+  </circle>
+</svg>

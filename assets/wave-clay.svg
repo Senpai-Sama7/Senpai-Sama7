@@ -1,0 +1,61 @@
+<svg width="800" height="100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.8">
+        <animate attributeName="stop-color" values="#667eea;#4facfe;#00f2fe;#667eea" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:0.6">
+        <animate attributeName="stop-color" values="#764ba2;#f093fb;#f5576c;#764ba2" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0.8">
+        <animate attributeName="stop-color" values="#f093fb;#f5576c;#4facfe;#f093fb" dur="8s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.4"/>
+      <stop offset="50%" style="stop-color:#00f2fe;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#43e97b;stop-opacity:0.4"/>
+    </linearGradient>
+    <filter id="clayWave">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="3" dy="3" result="offset1"/>
+      <feFlood flood-color="#d1d1d6"/>
+      <feComposite in2="offset1" operator="in"/>
+      <feOffset dx="-2" dy="-2" result="offset2"/>
+      <feFlood flood-color="#ffffff"/>
+      <feComposite in2="offset2" operator="in"/>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main wave -->
+  <path d="M0,50 Q100,20 200,50 T400,50 Q500,20 600,50 T800,50 L800,100 L0,100 Z" 
+        fill="url(#waveGrad1)" filter="url(#clayWave)">
+    <animateTransform attributeName="transform" type="translate" 
+                      values="0,0;-100,0;0,0" dur="15s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Secondary wave -->
+  <path d="M0,60 Q150,30 300,60 T600,60 Q700,30 800,60 L800,100 L0,100 Z" 
+        fill="url(#waveGrad2)" filter="url(#clayWave)">
+    <animateTransform attributeName="transform" type="translate" 
+                      values="0,0;100,0;0,0" dur="20s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Floating particles -->
+  <circle cx="200" cy="40" r="4" fill="#667eea" opacity="0.3">
+    <animateTransform attributeName="transform" type="translate" 
+                      values="0,0;20,-10;0,0" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="600" cy="35" r="3" fill="#f093fb" opacity="0.4">
+    <animateTransform attributeName="transform" type="translate" 
+                      values="0,0;-15,15;0,0" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="6s" repeatCount="indefinite"/>
+  </circle>
+</svg>

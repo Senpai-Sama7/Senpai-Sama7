@@ -1,0 +1,101 @@
+<svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="clayBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f0f3"/>
+      <stop offset="100%" style="stop-color:#e6e6ea"/>
+    </linearGradient>
+    <filter id="clayButton">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="4" dy="4" result="offset1"/>
+      <feFlood flood-color="#d1d1d6"/>
+      <feComposite in2="offset1" operator="in"/>
+      <feOffset dx="-4" dy="-4" result="offset2"/>
+      <feFlood flood-color="#ffffff"/>
+      <feComposite in2="offset2" operator="in"/>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#clayBg)" rx="25"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+        font-size="24" font-weight="800" fill="#333">
+    Technology Ecosystem
+  </text>
+  
+  <!-- Tech stack items -->
+  <g id="techItems">
+    <!-- Row 1 -->
+    <rect x="80" y="70" width="120" height="40" fill="#667eea" rx="20" filter="url(#clayButton)">
+      <animate attributeName="fill" values="#667eea;#764ba2;#667eea" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="140" y="95" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="14" font-weight="600" fill="white">TypeScript</text>
+    
+    <rect x="220" y="70" width="120" height="40" fill="#f093fb" rx="20" filter="url(#clayButton)">
+      <animate attributeName="fill" values="#f093fb;#f5576c;#f093fb" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <text x="280" y="95" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="14" font-weight="600" fill="white">Python</text>
+    
+    <rect x="360" y="70" width="120" height="40" fill="#4facfe" rx="20" filter="url(#clayButton)">
+      <animate attributeName="fill" values="#4facfe;#00f2fe;#4facfe" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    <text x="420" y="95" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="14" font-weight="600" fill="white">React</text>
+    
+    <rect x="500" y="70" width="120" height="40" fill="#43e97b" rx="20" filter="url(#clayButton)">
+      <animate attributeName="fill" values="#43e97b;#38f9d7;#43e97b" dur="9s" repeatCount="indefinite"/>
+    </rect>
+    <text x="560" y="95" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="14" font-weight="600" fill="white">Node.js</text>
+    
+    <!-- Row 2 -->
+    <rect x="80" y="130" width="120" height="40" fill="#764ba2" rx="20" filter="url(#clayButton)">
+      <animate attributeName="fill" values="#764ba2;#667eea;#764ba2" dur="10s" repeatCount="indefinite"/>
+    </rect>
+    <text x="140" y="155" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="14" font-weight="600" fill="white">Docker</text>
+    
+    <rect x="220" y="130" width="120" height="40" fill="#f5576c" rx="20" filter="url(#clayButton)">
+      <animate attributeName="fill" values="#f5576c;#f093fb;#f5576c" dur="11s" repeatCount="indefinite"/>
+    </rect>
+    <text x="280" y="155" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="14" font-weight="600" fill="white">AWS</text>
+    
+    <rect x="360" y="130" width="120" height="40" fill="#00f2fe" rx="20" filter="url(#clayButton)">
+      <animate attributeName="fill" values="#00f2fe;#4facfe;#00f2fe" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <text x="420" y="155" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="14" font-weight="600" fill="white">Kubernetes</text>
+    
+    <rect x="500" y="130" width="120" height="40" fill="#38f9d7" rx="20" filter="url(#clayButton)">
+      <animate attributeName="fill" values="#38f9d7;#43e97b;#38f9d7" dur="13s" repeatCount="indefinite"/>
+    </rect>
+    <text x="560" y="155" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+          font-size="14" font-weight="600" fill="white">GraphQL</text>
+  </g>
+  
+  <!-- Floating elements -->
+  <circle cx="700" cy="100" r="8" fill="#667eea" opacity="0.2">
+    <animateTransform attributeName="transform" type="translate" 
+                      values="0,0;10,-5;0,0" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="50" cy="150" r="6" fill="#f093fb" opacity="0.3">
+    <animateTransform attributeName="transform" type="translate" 
+                      values="0,0;-8,8;0,0" dur="10s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Subtitle -->
+  <text x="400" y="220" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+        font-size="16" font-weight="500" fill="#666">
+    Enterprise-grade technologies for scalable solutions
+  </text>
+</svg>

@@ -1,0 +1,119 @@
+<svg width="800" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="clayBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f0f3"/>
+      <stop offset="100%" style="stop-color:#e6e6ea"/>
+    </linearGradient>
+    <linearGradient id="snakeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="25%" style="stop-color:#764ba2"/>
+      <stop offset="50%" style="stop-color:#f093fb"/>
+      <stop offset="75%" style="stop-color:#4facfe"/>
+      <stop offset="100%" style="stop-color:#00f2fe"/>
+    </linearGradient>
+    <filter id="clayCard">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="6" dy="6" result="offset1"/>
+      <feFlood flood-color="#d1d1d6"/>
+      <feComposite in2="offset1" operator="in"/>
+      <feOffset dx="-4" dy="-4" result="offset2"/>
+      <feFlood flood-color="#ffffff"/>
+      <feComposite in2="offset2" operator="in"/>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#clayBg)" rx="25" filter="url(#clayCard)"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+        font-size="20" font-weight="800" fill="#333">
+    Contribution Activity Matrix
+  </text>
+  
+  <!-- Snake-like contribution grid -->
+  <g id="contributionGrid">
+    <!-- Grid pattern representing contribution activity -->
+    <g transform="translate(100, 60)">
+      <!-- Week rows -->
+      <g id="week1">
+        <rect x="0" y="0" width="8" height="8" fill="#667eea" rx="2" opacity="0.8">
+          <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="12" y="0" width="8" height="8" fill="#764ba2" rx="2" opacity="0.6">
+          <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="24" y="0" width="8" height="8" fill="#f093fb" rx="2" opacity="0.9">
+          <animate attributeName="opacity" values="0.9;1;0.9" dur="4s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="36" y="0" width="8" height="8" fill="#4facfe" rx="2" opacity="0.7">
+          <animate attributeName="opacity" values="0.7;1;0.7" dur="4.5s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="48" y="0" width="8" height="8" fill="#00f2fe" rx="2" opacity="0.8">
+          <animate attributeName="opacity" values="0.8;1;0.8" dur="5s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+      
+      <!-- Repeat pattern for multiple weeks -->
+      <use href="#week1" transform="translate(0, 12)"/>
+      <use href="#week1" transform="translate(0, 24)"/>
+      <use href="#week1" transform="translate(0, 36)"/>
+      <use href="#week1" transform="translate(0, 48)"/>
+      
+      <!-- Continue pattern across -->
+      <use href="#week1" transform="translate(72, 0)"/>
+      <use href="#week1" transform="translate(72, 12)"/>
+      <use href="#week1" transform="translate(72, 24)"/>
+      <use href="#week1" transform="translate(72, 36)"/>
+      <use href="#week1" transform="translate(72, 48)"/>
+      
+      <use href="#week1" transform="translate(144, 0)"/>
+      <use href="#week1" transform="translate(144, 12)"/>
+      <use href="#week1" transform="translate(144, 24)"/>
+      <use href="#week1" transform="translate(144, 36)"/>
+      <use href="#week1" transform="translate(144, 48)"/>
+      
+      <use href="#week1" transform="translate(216, 0)"/>
+      <use href="#week1" transform="translate(216, 12)"/>
+      <use href="#week1" transform="translate(216, 24)"/>
+      <use href="#week1" transform="translate(216, 36)"/>
+      <use href="#week1" transform="translate(216, 48)"/>
+    </g>
+  </g>
+  
+  <!-- Stats -->
+  <text x="600" y="80" font-family="SF Pro Display, system-ui, sans-serif" 
+        font-size="14" font-weight="600" fill="#666">
+    247 contributions
+  </text>
+  <text x="600" y="100" font-family="SF Pro Display, system-ui, sans-serif" 
+        font-size="14" font-weight="600" fill="#666">
+    in the last year
+  </text>
+  
+  <!-- Legend -->
+  <text x="100" y="175" font-family="SF Pro Display, system-ui, sans-serif" 
+        font-size="12" font-weight="500" fill="#666">
+    Less
+  </text>
+  <rect x="130" y="168" width="6" height="6" fill="#eee" rx="1"/>
+  <rect x="140" y="168" width="6" height="6" fill="#c6e48b" rx="1"/>
+  <rect x="150" y="168" width="6" height="6" fill="#7bc96f" rx="1"/>
+  <rect x="160" y="168" width="6" height="6" fill="#239a3b" rx="1"/>
+  <rect x="170" y="168" width="6" height="6" fill="#196127" rx="1"/>
+  <text x="185" y="175" font-family="SF Pro Display, system-ui, sans-serif" 
+        font-size="12" font-weight="500" fill="#666">
+    More
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="175" text-anchor="middle" font-family="SF Pro Display, system-ui, sans-serif" 
+        font-size="14" font-weight="500" fill="#666">
+    Consistent contribution pattern across projects and repositories
+  </text>
+</svg>

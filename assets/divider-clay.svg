@@ -1,0 +1,37 @@
+<svg width="800" height="60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="clayDivider" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f0f0f3;stop-opacity:0.8"/>
+      <stop offset="50%" style="stop-color:#e6e6ea;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f0f0f3;stop-opacity:0.8"/>
+    </linearGradient>
+    <filter id="clayInset">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="2" dy="2" result="offset1"/>
+      <feFlood flood-color="#d1d1d6"/>
+      <feComposite in2="offset1" operator="in"/>
+      <feOffset dx="-2" dy="-2" result="offset2"/>
+      <feFlood flood-color="#ffffff"/>
+      <feComposite in2="offset2" operator="in"/>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main divider -->
+  <ellipse cx="400" cy="30" rx="350" ry="15" fill="url(#clayDivider)" filter="url(#clayInset)">
+    <animate attributeName="rx" values="350;370;350" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="6s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Decorative elements -->
+  <circle cx="200" cy="30" r="4" fill="#667eea" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="30" r="3" fill="#f093fb" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
