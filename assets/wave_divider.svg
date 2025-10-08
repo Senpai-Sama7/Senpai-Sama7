@@ -1,0 +1,39 @@
+<svg width="1200" height="80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1200 80">
+  <defs>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.3"/>
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0.3"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Animated wave 1 -->
+  <path fill="url(#waveGrad)">
+    <animate attributeName="d" 
+             values="M0,20 C300,50 900,0 1200,30 L1200,80 L0,80 Z;
+                     M0,30 C300,0 900,50 1200,20 L1200,80 L0,80 Z;
+                     M0,20 C300,50 900,0 1200,30 L1200,80 L0,80 Z"
+             dur="8s" 
+             repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Animated wave 2 -->
+  <path fill="rgba(102, 126, 234, 0.2)">
+    <animate attributeName="d"
+             values="M0,40 C300,10 900,60 1200,30 L1200,80 L0,80 Z;
+                     M0,30 C300,60 900,10 1200,40 L1200,80 L0,80 Z;
+                     M0,40 C300,10 900,60 1200,30 L1200,80 L0,80 Z"
+             dur="6s"
+             repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Animated wave 3 -->
+  <path fill="rgba(118, 75, 162, 0.15)">
+    <animate attributeName="d"
+             values="M0,50 C300,30 900,50 1200,40 L1200,80 L0,80 Z;
+                     M0,40 C300,50 900,30 1200,50 L1200,80 L0,80 Z;
+                     M0,50 C300,30 900,50 1200,40 L1200,80 L0,80 Z"
+             dur="10s"
+             repeatCount="indefinite"/>
+  </path>
+</svg>

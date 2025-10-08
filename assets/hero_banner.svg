@@ -1,0 +1,73 @@
+<svg width="1200" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1">
+        <animate attributeName="stop-color" values="#667eea;#764ba2;#f093fb;#667eea" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1">
+        <animate attributeName="stop-color" values="#764ba2;#f093fb;#667eea;#764ba2" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1">
+        <animate attributeName="stop-color" values="#f093fb;#667eea;#764ba2;#f093fb" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <animateTransform attributeName="gradientTransform" type="rotate" from="0 0.5 0.5" to="360 0.5 0.5" dur="12s" repeatCount="indefinite"/>
+    </linearGradient>
+    
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1"/>
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Animated gradient background -->
+  <rect width="1200" height="300" fill="url(#grad1)"/>
+  
+  <!-- Overlay for depth -->
+  <rect width="1200" height="300" fill="url(#grad2)"/>
+  
+  <!-- Animated particles -->
+  <circle cx="100" cy="50" r="3" fill="rgba(255,255,255,0.6)" filter="url(#glow)">
+    <animate attributeName="cy" values="50;250;50" dur="15s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="15s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="300" cy="280" r="2" fill="rgba(255,255,255,0.5)" filter="url(#glow)">
+    <animate attributeName="cy" values="280;80;280" dur="20s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="20s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="600" cy="150" r="4" fill="rgba(255,255,255,0.7)" filter="url(#glow)">
+    <animate attributeName="cy" values="150;50;250;150" dur="18s" repeatCount="indefinite"/>
+    <animate attributeName="cx" values="600;650;550;600" dur="18s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;0.3;0.7" dur="18s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="900" cy="200" r="2.5" fill="rgba(255,255,255,0.6)" filter="url(#glow)">
+    <animate attributeName="cy" values="200;100;200" dur="22s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="22s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="1100" cy="100" r="3" fill="rgba(255,255,255,0.5)" filter="url(#glow)">
+    <animate attributeName="cy" values="100;280;100" dur="17s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="17s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Floating geometric shapes -->
+  <polygon points="200,200 220,240 180,240" fill="rgba(255,255,255,0.1)" opacity="0.3">
+    <animateTransform attributeName="transform" type="rotate" from="0 200 220" to="360 200 220" dur="30s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.1;0.3" dur="6s" repeatCount="indefinite"/>
+  </polygon>
+  
+  <rect x="800" y="80" width="40" height="40" fill="rgba(255,255,255,0.1)" opacity="0.25" rx="5">
+    <animateTransform attributeName="transform" type="rotate" from="0 820 100" to="360 820 100" dur="25s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.25;0.05;0.25" dur="7s" repeatCount="indefinite"/>
+  </rect>
+</svg>

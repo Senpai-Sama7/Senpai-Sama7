@@ -1,0 +1,36 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skillGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.8" />
+    </linearGradient>
+    <filter id="skillGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="bgGradient">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="transparent"/>
+  <circle cx="200.0" cy="200.0" r="160.0" fill="url(#bgGradient)" opacity="0.3"/>
+  
+  <!-- Grid rings -->
+  <polygon points="200.00,160.00 228.28,171.72 240.00,200.00 228.28,228.28 200.00,240.00 171.72,228.28 160.00,200.00 171.72,171.72" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><polygon points="200.00,120.00 256.57,143.43 280.00,200.00 256.57,256.57 200.00,280.00 143.43,256.57 120.00,200.00 143.43,143.43" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><polygon points="200.00,80.00 284.85,115.15 320.00,200.00 284.85,284.85 200.00,320.00 115.15,284.85 80.00,200.00 115.15,115.15" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/><polygon points="200.00,40.00 313.14,86.86 360.00,200.00 313.14,313.14 200.00,360.00 86.86,313.14 40.00,200.00 86.86,86.86" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  
+  <!-- Axes -->
+  <line x1="200.0" y1="200.0" x2="200.00" y2="24.00" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><line x1="200.0" y1="200.0" x2="324.45" y2="75.55" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><line x1="200.0" y1="200.0" x2="376.00" y2="200.00" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><line x1="200.0" y1="200.0" x2="324.45" y2="324.45" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><line x1="200.0" y1="200.0" x2="200.00" y2="376.00" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><line x1="200.0" y1="200.0" x2="75.55" y2="324.45" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><line x1="200.0" y1="200.0" x2="24.00" y2="200.00" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><line x1="200.0" y1="200.0" x2="75.55" y2="75.55" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  
+  <!-- Skill polygon -->
+  <polygon points="200.00,56.00 296.17,103.83 328.00,200.00 284.85,284.85 200.00,312.00 126.46,273.54 64.00,200.00 92.52,92.52" fill="url(#skillGradient)" stroke="#667eea" stroke-width="2" filter="url(#skillGlow)"/>
+  <polygon points="200.00,56.00 296.17,103.83 328.00,200.00 284.85,284.85 200.00,312.00 126.46,273.54 64.00,200.00 92.52,92.52" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  
+  <!-- Labels -->
+  <text x="200.00" y="0.00" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="middle">Python</text><text x="341.42" y="58.58" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="600" text-anchor="start" dominant-baseline="middle">JavaScript</text><text x="400.00" y="200.00" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="600" text-anchor="start" dominant-baseline="middle">React</text><text x="341.42" y="341.42" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="600" text-anchor="start" dominant-baseline="middle">Node.js</text><text x="200.00" y="400.00" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="middle">Docker</text><text x="58.58" y="341.42" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="600" text-anchor="end" dominant-baseline="middle">AWS</text><text x="0.00" y="200.00" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="600" text-anchor="end" dominant-baseline="middle">PostgreSQL</text><text x="58.58" y="58.58" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="600" text-anchor="end" dominant-baseline="middle">Git</text>
+</svg>
