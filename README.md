@@ -136,7 +136,6 @@ const skills = {
 <div align="center">
 
 <img width="49%" src="https://github-readme-stats.vercel.app/api?username=Senpai-Sama7&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A3B1C6&icon_color=6C7B95&text_color=ffffff" />
-<img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=Senpai-Sama7&theme=tokyonight&hide_border=true&background=0D1117&ring=A3B1C6&fire=6C7B95&currStreakLabel=A3B1C6" />
 
 <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Senpai-Sama7&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A3B1C6&text_color=ffffff" />
 
