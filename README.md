@@ -7,8 +7,8 @@
 
 # Douglas Mitchell
 
-<p style="font-size: 1.3em; color: #A3B1C6; font-weight: 500;">
-  **AI Simulated**
+<p style="font-size: 2.3em; color: #A3B1C6; font-weight: 500;">
+  AI Simulated
 </p>
 
 <p style="font-size: 1.1em; max-width: 700px; margin: 20px auto; line-height: 1.8;">
