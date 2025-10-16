@@ -5,10 +5,10 @@
 
 <div style="background: linear-gradient(135deg, rgba(61, 74, 95, 0.1) 0%, rgba(108, 123, 149, 0.1) 100%); backdrop-filter: blur(20px); border-radius: 20px; padding: 40px; margin: 20px 0; border: 1px solid rgba(163, 177, 198, 0.2);">
 
-# 👋 Hi, I'm Douglas Mitchell
+# Douglas Mitchell
 
 <p style="font-size: 1.3em; color: #A3B1C6; font-weight: 500;">
-  Innovative Developer & Creative Problem Solver
+  The Architect
 </p>
 
 <p style="font-size: 1.1em; max-width: 700px; margin: 20px auto; line-height: 1.8;">
@@ -28,26 +28,6 @@
 </div>
 
 <br/>
-
-<table>
-<tr>
-<td width="33%" align="center">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Artist%20Palette.png" width="60" />
-<br/><b>Modern Design</b><br/>
-Apple Keynote-inspired with clay theme colors and glass morphism
-</td>
-<td width="33%" align="center">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Clapper%20Board.png" width="60" />
-<br/><b>Smooth Animations</b><br/>
-Professional transitions and hover effects
-</td>
-<td width="33%" align="center">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mobile%20Phone.png" width="60" />
-<br/><b>Fully Responsive</b><br/>
-Works beautifully on all devices
-</td>
-</tr>
-</table>
 
 ---
 
@@ -140,7 +120,6 @@ const skills = {
 </td>
 <td width="50%" align="center">
 <h3>✨ Portfolio Website</h3>
-<p>Interactive presentation with Apple Keynote-inspired design and glass morphism</p>
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" />
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" />
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" />
@@ -171,8 +150,8 @@ const skills = {
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Senpai-Sama7)
 [![Portfolio](https://img.shields.io/badge/Portfolio-3D4A5F?style=for-the-badge&logo=google-chrome&logoColor=white)](https://senpai-sama7.github.io/Senpai-Sama7/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contact@example.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/douglas-mitchell-bb18b1383?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:CEO@DouglasMitchell.info)
 
 </div>
 
