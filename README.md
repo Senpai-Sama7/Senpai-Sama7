@@ -156,24 +156,7 @@ const skills = {
 
 ---
 
-## 💭 Quote of the Day
 
-<div align="center">
-
-<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight&quote=The%20only%20way%20to%20do%20great%20work%20is%20to%20love%20what%20you%20do.&author=Steve%20Jobs" />
-
-</div>
-
----
-
-## 🎵 Recent Activity
-
-<!--START_SECTION:activity-->
-<!--END_SECTION:activity-->
-
----
-
-<div align="center">
 
 ### 🎨 Profile Views & Contributions
 
