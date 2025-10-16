@@ -1,14 +1,14 @@
 <div align="center">
 
 <!-- Hero Section with Glass Morphism Effect -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,16,18,20&height=250&section=header&text=Welcome&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=fff" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,16,18,20&height=250&section=header&text="The Architect"&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=fff" />
 
 <div style="background: linear-gradient(135deg, rgba(61, 74, 95, 0.1) 0%, rgba(108, 123, 149, 0.1) 100%); backdrop-filter: blur(20px); border-radius: 20px; padding: 40px; margin: 20px 0; border: 1px solid rgba(163, 177, 198, 0.2);">
 
 # Douglas Mitchell
 
 <p style="font-size: 1.3em; color: #A3B1C6; font-weight: 500;">
-  The Architect
+  **AI Simulated**
 </p>
 
 <p style="font-size: 1.1em; max-width: 700px; margin: 20px auto; line-height: 1.8;">
@@ -46,11 +46,13 @@ approach: "Clean code, thoughtful design, continuous learning"
 
 ### 🌟 Core Principles
 
+```
 - 💡 **Innovation First**: Always exploring cutting-edge technologies and methodologies
 - 🎨 **Design Matters**: Beautiful, intuitive interfaces that users love
 - ⚡ **Performance Driven**: Fast, efficient, and scalable solutions
 - 🔒 **Security Focused**: Building with security best practices from the ground up
 - 🤝 **Collaboration**: Working together to achieve extraordinary results
+```
 
 ---
 
