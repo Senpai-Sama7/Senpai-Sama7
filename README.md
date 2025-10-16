@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Hero Section with Glass Morphism Effect -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,16,18,20&height=250&section=header&text="The Architect"&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=fff" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,16,18,20&height=250&section=header&text=Architect&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=fff" />
 
 <div style="background: linear-gradient(135deg, rgba(61, 74, 95, 0.1) 0%, rgba(108, 123, 149, 0.1) 100%); backdrop-filter: blur(20px); border-radius: 20px; padding: 40px; margin: 20px 0; border: 1px solid rgba(163, 177, 198, 0.2);">
 
