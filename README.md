@@ -33,7 +33,7 @@
 
 ## 🎯 About & Philosophy
 
-<img align="right" width="300" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" />
+<img align="center" width="300" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" />
 
 ```yaml
 mission: "Craft meaningful digital experiences that make a difference"
