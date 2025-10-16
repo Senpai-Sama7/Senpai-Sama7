@@ -149,7 +149,7 @@ const skills = {
 <div align="center">
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Senpai-Sama7)
-[![Portfolio](https://img.shields.io/badge/Portfolio-3D4A5F?style=for-the-badge&logo=google-chrome&logoColor=white)](https://senpai-sama7.github.io/Senpai-Sama7/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-3D4A5F?style=for-the-badge&logo=google-chrome&logoColor=white)](https://DouglasMitchell.info)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/douglas-mitchell-bb18b1383?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:CEO@DouglasMitchell.info)
 
@@ -193,7 +193,7 @@ const skills = {
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,16,18,20&height=150&section=footer" />
 
 <p style="font-size: 1.2em; color: #A3B1C6;">
-  <b>Thank you for visiting! ✨</b>
+  <b>Open-Sourced Humanity</b>
 </p>
 
 <p style="color: #6C7B95;">
